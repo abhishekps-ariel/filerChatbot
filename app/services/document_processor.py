@@ -2,6 +2,7 @@ from pypdf import PdfReader
 from docx import Document
 from typing import List, Tuple
 import io
+import json
 
 
 class SimpleTextSplitter:
@@ -87,6 +88,45 @@ class DocumentProcessor:
         except Exception as e:
             raise ValueError(f"Failed to extract text from DOCX: {str(e)}")
     
+    def extract_text_from_markdown(self, file_content: bytes) -> str:
+        """Extract text from Markdown (.md) file."""
+        try:
+            text = file_content.decode('utf-8')
+            return text.strip()
+        except Exception as e:
+            raise ValueError(f"Failed to extract text from Markdown: {str(e)}")
+    
+    def extract_text_from_json(self, file_content: bytes) -> str:
+        """Extract text from JSON file (Q&A dataset)."""
+        try:
+            data = json.loads(file_content.decode('utf-8'))
+            
+            # If it's a list of Q&A entries
+            if isinstance(data, list):
+                text_parts = []
+                for entry in data:
+                    if isinstance(entry, dict):
+                        # Extract question and answer
+                        question = entry.get('question', '')
+                        answer = entry.get('answer', '')
+                        category = entry.get('category', '')
+                        intent = entry.get('intent', '')
+                        
+                        # Format as readable text
+                        if question and answer:
+                            text_parts.append(f"Category: {category}")
+                            text_parts.append(f"Intent: {intent}")
+                            text_parts.append(f"Q: {question}")
+                            text_parts.append(f"A: {answer}")
+                            text_parts.append("---")
+                
+                return "\n".join(text_parts)
+            else:
+                # Fallback: convert entire JSON to string
+                return json.dumps(data, indent=2)
+        except Exception as e:
+            raise ValueError(f"Failed to extract text from JSON: {str(e)}")
+    
     def chunk_text(self, text: str) -> List[str]:
         """Split text into chunks."""
         if not text:
@@ -109,8 +149,14 @@ class DocumentProcessor:
         elif filename.lower().endswith('.docx'):
             text = self.extract_text_from_docx(file_content)
             file_type = "DOCX"
+        elif filename.lower().endswith('.md'):
+            text = self.extract_text_from_markdown(file_content)
+            file_type = "Markdown"
+        elif filename.lower().endswith('.json'):
+            text = self.extract_text_from_json(file_content)
+            file_type = "JSON"
         else:
-            raise ValueError(f"Unsupported file type. Only PDF and DOCX are supported.")
+            raise ValueError(f"Unsupported file type. Only PDF, DOCX, MD, and JSON are supported.")
         
         # Create chunks
         chunks = self.chunk_text(text)

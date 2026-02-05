@@ -5,17 +5,10 @@ from functools import lru_cache
 class Settings(BaseSettings):
     """Application settings loaded from environment variables."""
     
-    # OpenAI / Azure OpenAI
-    use_azure: bool = False
-    openai_api_key: str
-    openai_model: str = "gpt-4o-mini"
-    openai_embedding_model: str = "text-embedding-3-small"
-    
-    # Azure OpenAI specific (only needed if use_azure=True)
-    azure_endpoint: str = ""
-    azure_api_version: str = "2024-02-15-preview"
-    azure_embedding_deployment: str = ""
-    azure_chat_deployment: str = ""
+    # Google Gemini
+    gemini_api_key: str
+    gemini_model: str = "gemini-2.5-flash"
+    gemini_embedding_model: str = "models/embedding-001"
     
     # Database
     postgres_host: str = "localhost"

@@ -1,0 +1,1554 @@
+[
+  {
+    "id": "REG-001",
+    "category": "Registration & Login",
+    "intent": "Account Creation",
+    "question": "How do I create a new account in FILIR?",
+    "answer": "Users create an account by registering with an email address and password that meet configured complexity rules. Only one individual from each organization is allowed to set up the company's registration.",
+    "source": "MA EOED DOB System Revised Requirements"
+  },
+  {
+    "id": "REG-002",
+    "category": "Registration & Login",
+    "intent": "Email Verification",
+    "question": "Is email verification required before login?",
+    "answer": "Yes. Users must verify their email address before their account becomes active and login is allowed.",
+    "source": "MA EOED DOB System Revised Requirements"
+  },
+  {
+    "id": "REG-003",
+    "category": "Registration & Login",
+    "intent": "Verification Expiry",
+    "question": "What happens if my email verification link expires?",
+    "answer": "If the verification link expires, the system displays an expired link message and allows the user to request a new verification email.",
+    "source": "MA EOED DOB System Revised Requirements"
+  },
+  {
+    "id": "REG-004",
+    "category": "Registration & Login",
+    "intent": "Account Purging",
+    "question": "What happens to unverified accounts?",
+    "answer": "Unverified accounts older than a configurable period (e.g., 30 days) are automatically purged from the system.",
+    "source": "MA EOED DOB System Revised Requirements"
+  },
+  {
+    "id": "REG-005",
+    "category": "Registration & Login",
+    "intent": "First Login",
+    "question": "What happens during my first login after registration?",
+    "answer": "On first login after email verification, users are prompted to set up MFA (Multi-Factor Authentication), which is mandatory to access the portal.",
+    "source": "MA EOED DOB System Revised Requirements"
+  },
+  {
+    "id": "REG-006",
+    "category": "Registration & Login",
+    "intent": "Login Requirements",
+    "question": "Can I log in before verifying my email?",
+    "answer": "No. Users cannot log in until their email address has been verified using the one-time verification link sent after registration.",
+    "source": "MA EOED DOB System Revised Requirements"
+  },
+  {
+    "id": "SEC-001",
+    "category": "MFA & Security",
+    "intent": "MFA Requirement",
+    "question": "Is MFA mandatory in FILIR?",
+    "answer": "Yes. Multi-factor authentication is mandatory and must be configured during the first login.",
+    "source": "MA EOED DOB System Revised Requirements"
+  },
+  {
+    "id": "SEC-002",
+    "category": "MFA & Security",
+    "intent": "MFA Methods",
+    "question": "Which MFA methods are supported?",
+    "answer": "Users may choose either SMS-based verification or an authenticator app using time-based one-time passwords (TOTP).",
+    "source": "MA EOED DOB System Revised Requirements"
+  },
+  {
+    "id": "SEC-003",
+    "category": "MFA & Security",
+    "intent": "MFA Validation",
+    "question": "How is MFA setup validated?",
+    "answer": "The system validates a test code before enabling MFA. Users cannot continue to the portal without successful MFA setup.",
+    "source": "MA EOED DOB System Revised Requirements"
+  },
+  {
+    "id": "SEC-004",
+    "category": "MFA & Security",
+    "intent": "MFA Changes",
+    "question": "Can I change my MFA method after initial setup?",
+    "answer": "Yes. Users can change their MFA method via profile settings after the initial setup.",
+    "source": "MA EOED DOB System Revised Requirements"
+  },
+  {
+    "id": "ORG-001",
+    "category": "Organization Management",
+    "intent": "Join Organization",
+    "question": "How do I join an existing organization?",
+    "answer": "Users can search for an organization by name or EIN and submit a join request, which is placed in the Organization Admin's approval queue.",
+    "source": "MA EOED DOB System Revised Requirements"
+  },
+  {
+    "id": "ORG-002",
+    "category": "Organization Management",
+    "intent": "Request Status",
+    "question": "Can I see the status of my organization join request?",
+    "answer": "Yes. Request status (Pending/Approved/Denied) is visible to the user in their profile.",
+    "source": "MA EOED DOB System Revised Requirements"
+  },
+  {
+    "id": "ORG-003",
+    "category": "Organization Management",
+    "intent": "Approval Required",
+    "question": "Can I submit petitions before my organization join request is approved?",
+    "answer": "No. Users cannot submit petitions until their join request is approved by an Organization Admin.",
+    "source": "MA EOED DOB System Revised Requirements"
+  },
+  {
+    "id": "ORG-004",
+    "category": "Organization Management",
+    "intent": "Admin Notifications",
+    "question": "Do Organization Admins get notified of new join requests?",
+    "answer": "Yes. Organization Admins receive notifications of each new join request for their organization.",
+    "source": "MA EOED DOB System Revised Requirements"
+  },
+  {
+    "id": "DASH-001",
+    "category": "Dashboard & Navigation",
+    "intent": "Dashboard Purpose",
+    "question": "What does the dashboard show after login?",
+    "answer": "The dashboard displays all petitions associated with the user's organization, including Petition Number, Property Address, Status, and Last Updated date.",
+    "source": "Navigation Options for Portal"
+  },
+  {
+    "id": "DASH-002",
+    "category": "Dashboard & Navigation",
+    "intent": "Create Petition",
+    "question": "How do I start a new petition?",
+    "answer": "Users can start a new petition by clicking the 'Create New Petition' button on the Petitions Page, which launches the petition wizard.",
+    "source": "Navigation Options for Portal"
+  },
+  {
+    "id": "DASH-003",
+    "category": "Dashboard & Navigation",
+    "intent": "Status Display",
+    "question": "How are petition statuses displayed on the dashboard?",
+    "answer": "Petition statuses are color-coded (Draft, Submitted, Returned, Accepted, Closed) and displayed in the status column of the petition table.",
+    "source": "Navigation Options for Portal"
+  },
+  {
+    "id": "DASH-004",
+    "category": "Dashboard & Navigation",
+    "intent": "Quick Counts",
+    "question": "Can I see a summary of my petition counts?",
+    "answer": "Yes. The dashboard displays key counts including total active petitions, returned petitions, and accepted petitions.",
+    "source": "Navigation Options for Portal"
+  },
+  {
+    "id": "DASH-005",
+    "category": "Dashboard & Navigation",
+    "intent": "View Details",
+    "question": "How do I view details of a specific petition?",
+    "answer": "Click on a petition row in the dashboard table to navigate to the Petition Details view.",
+    "source": "Navigation Options for Portal"
+  },
+  {
+    "id": "PET-001",
+    "category": "Petition Lifecycle",
+    "intent": "Petition Creation",
+    "question": "What is required to create a draft petition?",
+    "answer": "A user must belong to an active organization to create a petition. On creation, the status is set to Draft and a petition_id (UUID) is assigned.",
+    "source": "Proposed System Requirements"
+  },
+  {
+    "id": "PET-002",
+    "category": "Petition Lifecycle",
+    "intent": "Multiple Drafts",
+    "question": "Can I have multiple draft petitions at the same time?",
+    "answer": "Yes. Multiple drafts per user are allowed in the system.",
+    "source": "Proposed System Requirements"
+  },
+  {
+    "id": "PET-003",
+    "category": "Petition Lifecycle",
+    "intent": "Petition Number",
+    "question": "When is a petition number assigned?",
+    "answer": "The petition_number is not assigned while in Draft status. It is assigned atomically on successful submission.",
+    "source": "Proposed System Requirements"
+  },
+  {
+    "id": "PET-004",
+    "category": "Petition Lifecycle",
+    "intent": "Save Resume",
+    "question": "Can I save a petition and come back to finish it later?",
+    "answer": "Yes. All petition forms support Save & Resume functionality with autosave on field blur.",
+    "source": "Proposed System Requirements"
+  },
+  {
+    "id": "PET-005",
+    "category": "Petition Lifecycle",
+    "intent": "Petition Statuses",
+    "question": "What are the possible petition statuses?",
+    "answer": "Petition statuses are: Draft, Submitted, Returned, Resubmitted, Accepted, and Closed.",
+    "source": "Proposed System Requirements"
+  },
+  {
+    "id": "PET-006",
+    "category": "Petition Lifecycle",
+    "intent": "Draft Actions",
+    "question": "What actions can I take on a Draft petition?",
+    "answer": "Draft petitions can be resumed for editing, deleted with confirmation prompt, or submitted when all required fields are complete.",
+    "source": "Navigation Options for Portal"
+  },
+  {
+    "id": "PET-007",
+    "category": "Petition Lifecycle",
+    "intent": "Submitted View",
+    "question": "Can I edit a petition after submission?",
+    "answer": "No. Submitted or Accepted petitions are read-only and display only a View action. Editing is only possible if the petition is Returned.",
+    "source": "Navigation Options for Portal"
+  },
+  {
+    "id": "PET-008",
+    "category": "Petition Lifecycle",
+    "intent": "Audit Trail",
+    "question": "Are petition actions logged?",
+    "answer": "Yes. All user actions (resume, delete, view, submit) are logged in the audit trail with timestamp and user ID.",
+    "source": "Navigation Options for Portal"
+  },
+  {
+    "id": "PROP-001",
+    "category": "Property Information",
+    "intent": "State Restriction",
+    "question": "Can I file a petition for a property outside Massachusetts?",
+    "answer": "No. The property state is locked to Massachusetts and cannot be changed. FILIR only accepts Massachusetts properties.",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "PROP-002",
+    "category": "Property Information",
+    "intent": "Address Validation",
+    "question": "Is address validation required for the property?",
+    "answer": "Yes. All property addresses must be verified using Google Places API before proceeding to the next step.",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "PROP-003",
+    "category": "Property Information",
+    "intent": "Address Override",
+    "question": "Can I override the validated property address?",
+    "answer": "Yes. Users may override the standardized address by providing a justification, and both addresses are stored.",
+    "source": "Foreclosure Petition – Screen-by-Screen Data Elements"
+  },
+  {
+    "id": "PROP-004",
+    "category": "Property Information",
+    "intent": "Required Fields",
+    "question": "What property fields are required?",
+    "answer": "Required fields are: Street Address Line 1, City, State (locked to Massachusetts), and ZIP Code. Street Address Line 2 is optional.",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "PROP-005",
+    "category": "Property Information",
+    "intent": "County Field",
+    "question": "Is the county field captured for properties?",
+    "answer": "Yes. When selecting a Google Places prediction, the system automatically captures the propertyCounty information.",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "PROP-006",
+    "category": "Property Information",
+    "intent": "Autocomplete",
+    "question": "Does FILIR provide address autocomplete?",
+    "answer": "Yes. FILIR uses Google Places API integration to provide address predictions as you type, with keyboard navigation support.",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "LOAN-001",
+    "category": "Loan Information & MERS",
+    "intent": "MIN Requirement",
+    "question": "Is the MIN number always required?",
+    "answer": "No. MIN (Mortgage Identification Number) is only required if 'Is MIN Applicable?' is set to Yes.",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "LOAN-002",
+    "category": "Loan Information & MERS",
+    "intent": "MERS Prefill",
+    "question": "Can loan information be prefilled from MERS?",
+    "answer": "Yes. Users can enter the MIN number and click 'Get Loan Information' to prefill loan data from MERS. The MIN must be registered during account setup.",
+    "source": "Petition System PDF"
+  },
+  {
+    "id": "LOAN-003",
+    "category": "Loan Information & MERS",
+    "intent": "Required Loan Fields",
+    "question": "What loan fields are required in Step 3?",
+    "answer": "Required fields are: Is MIN Applicable, Loan Number, Petition Loan Type, and Loan Term. MIN Number is conditionally required if MIN is applicable.",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "LOAN-004",
+    "category": "Loan Information & MERS",
+    "intent": "ARM Detection",
+    "question": "How does the system detect ARM loans?",
+    "answer": "The system auto-detects ARM loans if the loan type name includes 'ARM' or 'ADJUSTABLE'. Additional ARM-specific fields then appear.",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "LOAN-005",
+    "category": "Loan Information & MERS",
+    "intent": "Currency Formatting",
+    "question": "How are loan amounts formatted in FILIR?",
+    "answer": "All currency fields use formatCurrencyInput() for display (e.g., $1,234,567.89) and parseCurrencyInput() for internal storage.",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "LOAN-006",
+    "category": "Loan Information & MERS",
+    "intent": "Lien Position",
+    "question": "What is lien position and is it required?",
+    "answer": "Lien position indicates the priority of the mortgage (First, Second, Third, etc.). It is a required field in Step 3 Loan Details.",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "BORR-001",
+    "category": "Borrowers",
+    "intent": "Multiple Borrowers",
+    "question": "Can I add multiple borrowers to a petition?",
+    "answer": "Yes. FILIR supports unlimited borrowers. Use the 'Add Borrower' button to add additional borrowers. At least one borrower is required.",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "BORR-002",
+    "category": "Borrowers",
+    "intent": "Required Borrower Fields",
+    "question": "What borrower fields are required?",
+    "answer": "Required fields per borrower are: First Name and Last Name. Middle Name is optional.",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "BORR-003",
+    "category": "Borrowers",
+    "intent": "Name Validation",
+    "question": "Are special characters allowed in borrower names?",
+    "answer": "No. Names are auto-sanitized to allow only letters and spaces using the regex pattern /[A-Za-z\\s]+/g.",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "BORR-004",
+    "category": "Borrowers",
+    "intent": "Primary Borrower",
+    "question": "Do I need to designate a primary borrower?",
+    "answer": "While not strictly required, it's best practice to designate one borrower as primary using the borrowerIsPrimary flag.",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "BORR-005",
+    "category": "Borrowers",
+    "intent": "Borrower Address",
+    "question": "Can borrower addresses be different from the property address?",
+    "answer": "Yes. Each borrower has separate address fields. However, a 'Use same as property' checkbox is available to copy the property address.",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "BORR-006",
+    "category": "Borrowers",
+    "intent": "Remove Borrower",
+    "question": "Can I remove a borrower after adding them?",
+    "answer": "Yes. Use the red X button to remove a borrower. However, at least one borrower must remain on the petition.",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "BORR-007",
+    "category": "Borrowers",
+    "intent": "Borrower List Saving",
+    "question": "How are borrowers saved to the petition?",
+    "answer": "Users must click 'Add' to save each borrower to the list. Otherwise, the borrower data is not recorded.",
+    "source": "MA EOED DOB System Revised Requirements"
+  },
+  {
+    "id": "FILING-001",
+    "category": "Filing Entity",
+    "intent": "Auto-Prefill",
+    "question": "Are filing entity fields automatically populated?",
+    "answer": "Yes. Filing entity information including Legal Name and Address is auto-prefilled from the organization data when an organization is selected in Step 1.",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "FILING-002",
+    "category": "Filing Entity",
+    "intent": "Read-Only Role",
+    "question": "Can I change my filing entity role in the petition?",
+    "answer": "No. The Filing Entity Role is read-only and populated from the user's profile. It cannot be changed within the petition form.",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "FILING-003",
+    "category": "Filing Entity",
+    "intent": "Required Fields",
+    "question": "What filing entity fields are required?",
+    "answer": "Required fields are: Filing Entity Legal Name, Filing Entity Role (auto-filled), Street Address Line 1, City, State, and ZIP Code.",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "FILING-004",
+    "category": "Filing Entity",
+    "intent": "Editable Fields",
+    "question": "Which filing entity fields can be edited?",
+    "answer": "Some fields are editable while others are pre-filled from registration. All required fields must be completed to proceed.",
+    "source": "MA EOED DOB System Revised Requirements"
+  },
+  {
+    "id": "ASSIGN-001",
+    "category": "Previous Loan Assignees",
+    "intent": "Assignee Requirement",
+    "question": "When are loan assignees required?",
+    "answer": "Loan assignees are only required if you answer 'Yes' to 'Are there any previous loan assignees?'. If 'No', this step is skipped entirely.",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "ASSIGN-002",
+    "category": "Previous Loan Assignees",
+    "intent": "Multiple Assignees",
+    "question": "Can I add multiple loan assignees?",
+    "answer": "Yes. The system supports unlimited assignees to document the complete chain of title. Use 'Add Assignee' to add more.",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "ASSIGN-003",
+    "category": "Previous Loan Assignees",
+    "intent": "Required Assignee Fields",
+    "question": "What fields are required for each assignee?",
+    "answer": "Required fields per assignee are: Assignee Name, Assignee Type, Assignee Role, and complete address (Street 1, City, State, ZIP).",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "ASSIGN-004",
+    "category": "Previous Loan Assignees",
+    "intent": "Assignee Type vs Role",
+    "question": "What is the difference between Assignee Type and Assignee Role?",
+    "answer": "Assignee Type indicates what kind of entity (Bank, Credit Union, Investment Firm, Servicer). Assignee Role indicates their relationship to the loan (Previous Holder, Current Owner, Servicer).",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "ASSIGN-005",
+    "category": "Previous Loan Assignees",
+    "intent": "Address Autocomplete",
+    "question": "Do assignee addresses support autocomplete?",
+    "answer": "Yes. Each assignee has Google Places integration with separate prediction dropdown and keyboard navigation support.",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "ASSIGN-006",
+    "category": "Previous Loan Assignees",
+    "intent": "Use Property Address",
+    "question": "Can I use the property address for an assignee?",
+    "answer": "Yes. Each assignee has a 'Use same address as Property' checkbox that copies the property address from Step 2 when checked.",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "RTC-001",
+    "category": "Right to Cure (§35A)",
+    "intent": "Notice Requirement",
+    "question": "Is a Right to Cure notice always required?",
+    "answer": "A Right to Cure notice is required before filing a foreclosure petition unless proceeding under the acceleration path.",
+    "source": "Foreclosure Petition – Screen-by-Screen Data Elements"
+  },
+  {
+    "id": "RTC-002",
+    "category": "Right to Cure (§35A)",
+    "intent": "Acceleration Path",
+    "question": "What is required if no Right to Cure notice was sent?",
+    "answer": "If no notice was sent, an acceleration date must be entered to proceed under the acceleration path.",
+    "source": "Foreclosure Petition – Screen-by-Screen Data Elements"
+  },
+  {
+    "id": "RTC-003",
+    "category": "Right to Cure (§35A)",
+    "intent": "Conditional Fields",
+    "question": "What happens if I select 'Notice Sent' as No?",
+    "answer": "If Notice Sent is set to No, the remaining fields in Step 6 are skipped and the user proceeds to Step 7.",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "RTC-004",
+    "category": "Right to Cure (§35A)",
+    "intent": "Required Notice Fields",
+    "question": "What fields are required if a Right to Cure notice was sent?",
+    "answer": "Required fields are: Notice Date, Amount in Default, Days Delinquent at Notice, Cure Expiration Date, and Notice Address (Street, City, State, ZIP).",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "RTC-005",
+    "category": "Right to Cure (§35A)",
+    "intent": "Cure Period",
+    "question": "How long is the right to cure period in Massachusetts?",
+    "answer": "The right to cure period is 90 days from the notice date, as required by Massachusetts law M.G.L. c. 244, § 35A.",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "RTC-006",
+    "category": "Right to Cure (§35A)",
+    "intent": "Borrower Response",
+    "question": "Are borrower response fields required?",
+    "answer": "Borrower response tracking fields (Did Borrower Respond Within 30 Days, Borrower Response Date, Proceeded with Right to Cure) are optional for record-keeping.",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "RTC-007",
+    "category": "Right to Cure (§35A)",
+    "intent": "Notice Address",
+    "question": "Can I use the property address for the notice address?",
+    "answer": "Yes. A 'Use same as property' checkbox is available to copy the property address to the notice address fields.",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "RTC-008",
+    "category": "Right to Cure (§35A)",
+    "intent": "Amount Format",
+    "question": "How is the Amount in Default formatted?",
+    "answer": "Amount in Default is formatted as currency ($X,XXX.XX) using the formatCurrencyInput utility.",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "FORM35B-001",
+    "category": "Form 35B Compliance",
+    "intent": "Certain Mortgage Loan",
+    "question": "What is a 'Certain Mortgage Loan'?",
+    "answer": "A loan is a 'certain mortgage loan' if it has variable rate (ARM), interest-only payment structure, or negative amortization allowed.",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "FORM35B-002",
+    "category": "Form 35B Compliance",
+    "intent": "Auto-Detection",
+    "question": "How does FILIR determine if Form 35B is required?",
+    "answer": "The system auto-detects based on loan characteristics from Step 3. If variableRate, interestOnly, or negativeAmortization is true, certainMortgageLoan is set to true and becomes read-only.",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "FORM35B-003",
+    "category": "Form 35B Compliance",
+    "intent": "Required Fields",
+    "question": "What fields are required in Step 7?",
+    "answer": "The 'Is this a Certain Mortgage Loan?' field is always required. If Yes, 'Was Form 35B Provided?' becomes required.",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "FORM35B-004",
+    "category": "Form 35B Compliance",
+    "intent": "Read-Only Field",
+    "question": "Why can't I change the Certain Mortgage Loan field?",
+    "answer": "The field becomes read-only when auto-detected based on loan characteristics. The system sets isCertainMortgageLoanReadOnly flag when auto-set to true.",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "FORM35B-005",
+    "category": "Form 35B Compliance",
+    "intent": "Legal Requirement",
+    "question": "Is Form 35B legally required?",
+    "answer": "Yes. Massachusetts law requires lenders to provide Form 35B for certain mortgage loans before foreclosure can proceed on these loan types.",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "ATT-001",
+    "category": "Attestation & E-Signature",
+    "intent": "Required Signature",
+    "question": "Is a digital signature required to submit a petition?",
+    "answer": "Yes. A digital signature must be uploaded in the user's profile before a petition can be submitted.",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "ATT-002",
+    "category": "Attestation & E-Signature",
+    "intent": "Attester Fields",
+    "question": "Are attester details editable?",
+    "answer": "No. All attester fields (First Name, Middle Initial, Last Name, Email, Title) are read-only and auto-filled from the user profile.",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "ATT-003",
+    "category": "Attestation & E-Signature",
+    "intent": "Certification Checkbox",
+    "question": "What is the certification checkbox for?",
+    "answer": "The certification checkbox confirms 'I certify under penalty of perjury that the information provided is true and correct'. It must be checked to submit and is disabled if no signature is uploaded.",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "ATT-004",
+    "category": "Attestation & E-Signature",
+    "intent": "Signature Upload",
+    "question": "Where do I upload my digital signature?",
+    "answer": "Navigate to Profile page → Digital Signature section → Upload signature image (PNG or JPEG) → Save. This must be done before submitting petitions.",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "ATT-005",
+    "category": "Attestation & E-Signature",
+    "intent": "Signature Formats",
+    "question": "What image formats are accepted for signatures?",
+    "answer": "The system supports signatureUrl from server, signatureBase64 for inline data, and image formats including PNG, JPEG, and SVG.",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "ATT-006",
+    "category": "Attestation & E-Signature",
+    "intent": "Missing Signature",
+    "question": "What happens if I try to submit without a signature?",
+    "answer": "A red danger badge shows 'Required' with a warning message. A 'Go to Profile to Upload' button appears that closes the petition modal and navigates to the Profile page.",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "ATT-007",
+    "category": "Attestation & E-Signature",
+    "intent": "Submission Timestamp",
+    "question": "When is the submission timestamp captured?",
+    "answer": "The submission timestamp is automatically captured upon final petition submission and provides a legal record of when the petition was filed.",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "SUB-001",
+    "category": "Submission & Validation",
+    "intent": "Review Step",
+    "question": "What is Step 10 Review and Submit?",
+    "answer": "Step 10 displays a comprehensive read-only summary of all petition details organized by sections. Each section has an 'Edit' button to jump back to the corresponding step.",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "SUB-002",
+    "category": "Submission & Validation",
+    "intent": "Edit from Review",
+    "question": "Can I edit sections from the Review page?",
+    "answer": "Yes. Click the 'Edit' button on any section to jump back to that specific step. All entered data is preserved and you return to Step 10 when done.",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "SUB-003",
+    "category": "Submission & Validation",
+    "intent": "Dropdown Resolution",
+    "question": "How are dropdown values displayed in the review?",
+    "answer": "The system looks up dropdown IDs and displays full names/descriptions using helper functions like getLoanTypes(), getLienPositions(), getAssigneeTypes().",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "SUB-004",
+    "category": "Submission & Validation",
+    "intent": "Validation Errors",
+    "question": "What happens if there are validation errors on submit?",
+    "answer": "If invalid, error messages display and the system jumps to the first error. All required fields must be complete before submission is allowed.",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "SUB-005",
+    "category": "Submission & Validation",
+    "intent": "Client Validation",
+    "question": "Does FILIR validate forms on the client side?",
+    "answer": "Yes. All forms support client-side validation with real-time error messages. Server-side validation also occurs on submission.",
+    "source": "Proposed System Requirements"
+  },
+  {
+    "id": "SUB-006",
+    "category": "Submission & Validation",
+    "intent": "Successful Submission",
+    "question": "What happens after successful petition submission?",
+    "answer": "The petition status changes to 'Submitted', a petition_number is assigned, and the petition becomes read-only for court review.",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "SUB-007",
+    "category": "Submission & Validation",
+    "intent": "Duplicate Detection",
+    "question": "Does FILIR check for duplicate petitions?",
+    "answer": "Yes. A duplicate_hash is generated at submit time to detect potential duplicate petitions.",
+    "source": "Proposed System Requirements"
+  },
+  {
+    "id": "RET-001",
+    "category": "Returned Petitions & Corrections",
+    "intent": "Returned Status",
+    "question": "What does 'Returned' status mean?",
+    "answer": "Returned status means the court reviewed the petition and found deficiencies that must be corrected. Check the Notes section for specific issues.",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "RET-002",
+    "category": "Returned Petitions & Corrections",
+    "intent": "Edit Returned",
+    "question": "Can I edit a returned petition?",
+    "answer": "Yes. Returned petitions display a Resume action allowing limited editing to correct the identified issues. After corrections, the petition can be resubmitted.",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "RET-003",
+    "category": "Returned Petitions & Corrections",
+    "intent": "Resubmission",
+    "question": "What status does a petition get after resubmission?",
+    "answer": "After corrections and resubmission, the status changes to 'Resubmitted' and awaits court review again.",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "RET-004",
+    "category": "Returned Petitions & Corrections",
+    "intent": "Limited Editing",
+    "question": "What can be edited in a returned petition?",
+    "answer": "Editing is limited to correcting specific deficiencies identified by the court. Core petition details cannot be changed after initial submission unless returned.",
+    "source": "MA EOED DOB System Revised Requirements"
+  },
+  {
+    "id": "AGY-001",
+    "category": "Agency Review Process",
+    "intent": "Review Timeline",
+    "question": "How long does petition review take?",
+    "answer": "Review times vary by court workload. Typically initial review takes 5-10 business days, and review after corrections takes 3-5 business days.",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "AGY-002",
+    "category": "Agency Review Process",
+    "intent": "Review Workflow",
+    "question": "What happens during agency review?",
+    "answer": "Division of Banks personnel review the submitted petition information. If approved, the account/petition is activated. If denied, a notification email explains the reason.",
+    "source": "Petition System PDF"
+  },
+  {
+    "id": "AGY-003",
+    "category": "Agency Review Process",
+    "intent": "Accepted Status",
+    "question": "What does 'Accepted' status mean?",
+    "answer": "Accepted status means the court accepted the petition as properly filed and all requirements are met. The user can proceed with the foreclosure process.",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "AGY-004",
+    "category": "Agency Review Process",
+    "intent": "Judgment Submitted",
+    "question": "What is 'Judgment Submitted' status?",
+    "answer": "Judgment Submitted status means the court issued a judgment authorizing foreclosure to proceed. Judgment information has been entered into the system.",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "NOT-001",
+    "category": "Notifications & Emails",
+    "intent": "Notification Display",
+    "question": "Where can I see my notifications?",
+    "answer": "Recent notifications are displayed in a side or bottom panel on the dashboard. Clicking a notification opens the linked petition or message.",
+    "source": "Navigation Options for Portal"
+  },
+  {
+    "id": "NOT-002",
+    "category": "Notifications & Emails",
+    "intent": "Email Notifications",
+    "question": "Will I receive email notifications?",
+    "answer": "Yes. Users receive email notifications for key events including email verification, join request status, and petition status changes.",
+    "source": "MA EOED DOB System Revised Requirements"
+  },
+  {
+    "id": "NOT-003",
+    "category": "Notifications & Emails",
+    "intent": "Approval Notification",
+    "question": "How will I know if my organization join request is approved?",
+    "answer": "A notification email is sent when your join request is approved or denied, explaining the decision.",
+    "source": "MA EOED DOB System Revised Requirements"
+  },
+  {
+    "id": "AUD-001",
+    "category": "Audit & Compliance",
+    "intent": "Audit Trail",
+    "question": "What information is captured in the audit trail?",
+    "answer": "All user-initiated changes generate audit entries containing actor, action, before/after snapshots, and timestamp in UTC.",
+    "source": "Proposed System Requirements"
+  },
+  {
+    "id": "AUD-002",
+    "category": "Audit & Compliance",
+    "intent": "Timestamp Storage",
+    "question": "How are timestamps stored in FILIR?",
+    "answer": "All timestamps are captured in UTC format. System tracks created_at and updated_at timestamps for all petition records.",
+    "source": "Proposed System Requirements"
+  },
+  {
+    "id": "AUD-003",
+    "category": "Audit & Compliance",
+    "intent": "Accessibility",
+    "question": "Is FILIR accessible for users with disabilities?",
+    "answer": "Yes. The Filing System is built to WCAG 2.1 AA accessibility standards.",
+    "source": "Proposed System Requirements"
+  },
+  {
+    "id": "ERR-001",
+    "category": "Errors & Edge Cases",
+    "intent": "Required Fields",
+    "question": "How do I know which fields are required?",
+    "answer": "Required fields are marked with a red asterisk (*). The system validates these fields before allowing progression to the next step.",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "ERR-002",
+    "category": "Errors & Edge Cases",
+    "intent": "Field Errors",
+    "question": "How are field errors displayed?",
+    "answer": "Field errors are displayed with red border on invalid fields and error messages shown below each field. Client-side validation provides immediate feedback.",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "ERR-003",
+    "category": "Errors & Edge Cases",
+    "intent": "Session Timeout",
+    "question": "What happens if my session times out?",
+    "answer": "If your session times out, save your work and log back in. Autosave functionality helps preserve your progress on field blur.",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "PROP-007",
+    "category": "Property Information",
+    "intent": "Property Type",
+    "question": "What property types can be filed in FILIR?",
+    "answer": "FILIR accepts one-to-four family, owner-occupied residential properties located in Massachusetts.",
+    "source": "FILIR System Guide"
+  },
+  {
+    "id": "PROP-008",
+    "category": "Property Information",
+    "intent": "Registry Information",
+    "question": "Is Registry of Deeds information required?",
+    "answer": "Yes. Book and page number where the mortgage is recorded must be provided in the property details.",
+    "source": "FILIR System Guide"
+  },
+  {
+    "id": "LOAN-007",
+    "category": "Loan Information & MERS",
+    "intent": "Original Loan Amount",
+    "question": "What is the Original Loan Amount field?",
+    "answer": "Original Loan Amount is the principal amount when the loan was first originated. This is different from the current balance.",
+    "source": "FILIR System Guide"
+  },
+  {
+    "id": "LOAN-008",
+    "category": "Loan Information & MERS",
+    "intent": "Current Balance",
+    "question": "What is Current Balance?",
+    "answer": "Current Balance is the outstanding balance on the loan at the time of petition filing.",
+    "source": "FILIR System Guide"
+  },
+  {
+    "id": "LOAN-009",
+    "category": "Loan Information & MERS",
+    "intent": "First Missed Payment",
+    "question": "What is the First Missed Payment Date?",
+    "answer": "First Missed Payment Date is the date of the first payment default that led to the foreclosure action.",
+    "source": "FILIR System Guide"
+  },
+  {
+    "id": "LOAN-010",
+    "category": "Loan Information & MERS",
+    "intent": "Loan Types",
+    "question": "What loan types are supported?",
+    "answer": "Supported loan types include Conventional, FHA, VA, ARM, and other standard mortgage types available in the dropdown.",
+    "source": "FILIR System Guide"
+  },
+  {
+    "id": "RTC-009",
+    "category": "Right to Cure (§35A)",
+    "intent": "Proof of Mailing",
+    "question": "Is proof of mailing required for the Right to Cure notice?",
+    "answer": "Yes. Confirmation that the notice was sent via certified mail must be provided.",
+    "source": "FILIR System Guide"
+  },
+  {
+    "id": "RTC-010",
+    "category": "Right to Cure (§35A)",
+    "intent": "Submission Deadline",
+    "question": "When must Right to Cure information be submitted?",
+    "answer": "Right to Cure information must be submitted within 5 business days of filing the petition.",
+    "source": "FILIR System Guide"
+  },
+  {
+    "id": "RTC-011",
+    "category": "Right to Cure (§35A)",
+    "intent": "Notice Requirements",
+    "question": "What must be included in the 90-Day Notice of Right to Cure?",
+    "answer": "The notice must include amount in default, deadline to cure, and consequences of non-cure. It must be mailed to the borrower before foreclosure.",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "POST-001",
+    "category": "Post-Submission Actions",
+    "intent": "Judgment Entry",
+    "question": "When can I add judgment information?",
+    "answer": "Judgment information can be added after petition status changes to Submitted or later, once the court issues a judgment.",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "POST-002",
+    "category": "Post-Submission Actions",
+    "intent": "Judgment Fields",
+    "question": "What fields are required for judgment information?",
+    "answer": "Required judgment fields are: Judgment Date, Judgment Type (dropdown), Court Information (court name and location), and Docket Numbers.",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "POST-003",
+    "category": "Post-Submission Actions",
+    "intent": "Judgment Types",
+    "question": "What judgment types are available?",
+    "answer": "Judgment types include Default Judgment, Summary Judgment, Consent Judgment, and other options from the judgmentTypes API enum.",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "POST-004",
+    "category": "Post-Submission Actions",
+    "intent": "Foreclosure Sale",
+    "question": "When can I add foreclosure sale information?",
+    "answer": "Foreclosure sale information can be added after judgment is obtained and the foreclosure sale has occurred or is scheduled.",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "POST-005",
+    "category": "Post-Submission Actions",
+    "intent": "Sale Fields",
+    "question": "What foreclosure sale fields are required?",
+    "answer": "Required fields are: Sale Date, Sold To (dropdown of buyer types), and Sale Amount (currency formatted).",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "POST-006",
+    "category": "Post-Submission Actions",
+    "intent": "Buyer Types",
+    "question": "What are the buyer type options for foreclosure sale?",
+    "answer": "Buyer types include Mortgagee/Investor, Third Party Buyer, and Other. Additional REO fields appear if sold to Mortgagee/Investor.",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "POST-007",
+    "category": "Post-Submission Actions",
+    "intent": "REO Fields",
+    "question": "What REO fields are required if property sold to mortgagee?",
+    "answer": "Required REO fields are: REO Entity Name, REO Contact First Name, REO Contact Last Name, REO Business Phone, and REO Emergency Phone.",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "POST-008",
+    "category": "Post-Submission Actions",
+    "intent": "Foreclosure Alternatives",
+    "question": "What foreclosure alternatives can be documented?",
+    "answer": "Foreclosure alternatives include Short Sale, Deed in Lieu, Loan Modification, Repayment Plan, and Other.",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "POST-009",
+    "category": "Post-Submission Actions",
+    "intent": "Sale Accessibility",
+    "question": "How do I access the foreclosure sale section?",
+    "answer": "Navigate to petition details via Search Petitions → View → Foreclosure Sale Tab. It only appears if 90-Day Right to Cure was marked Yes.",
+    "source": "MA EOED DOB System Revised Requirements"
+  },
+  {
+    "id": "STATUS-001",
+    "category": "Petition Lifecycle",
+    "intent": "Draft Status",
+    "question": "What is Draft status?",
+    "answer": "Draft is the initial status when a petition is created. All fields can be edited freely and the petition has not been submitted to court.",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "STATUS-002",
+    "category": "Petition Lifecycle",
+    "intent": "Submitted Status",
+    "question": "What happens when status changes to Submitted?",
+    "answer": "Submitted status means the petition is under court review. Core petition details become read-only, but Judgment and Foreclosure Sale information can be added.",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "STATUS-003",
+    "category": "Petition Lifecycle",
+    "intent": "Sale Initiated Status",
+    "question": "What is Foreclosure Sale Initiated status?",
+    "answer": "This status indicates the foreclosure sale process has begun, Notice of Sale is published, and sale date is scheduled.",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "STATUS-004",
+    "category": "Petition Lifecycle",
+    "intent": "Closed Status",
+    "question": "What does Closed status mean?",
+    "answer": "Closed status is the final status indicating the foreclosure process is complete, property is sold or otherwise resolved, and the petition is read-only.",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "STATUS-005",
+    "category": "Petition Lifecycle",
+    "intent": "Status Colors",
+    "question": "What colors represent different petition statuses?",
+    "answer": "Status colors are: Gray (Draft), Blue (Submitted), Orange (Foreclosure Sale Initiated), Purple (Judgment Submitted), Red (Returned), Yellow (Resubmitted), Green (Accepted), Dark Gray (Closed).",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "STATUS-006",
+    "category": "Petition Lifecycle",
+    "intent": "Status Workflow",
+    "question": "What is the normal petition status flow?",
+    "answer": "Normal flow is: Draft → Submitted → Judgment Submitted → Accepted → Foreclosure Sale Initiated → Closed.",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "STATUS-007",
+    "category": "Petition Lifecycle",
+    "intent": "Returned Workflow",
+    "question": "What is the workflow for returned petitions?",
+    "answer": "If issues are found: Submitted → Returned → [Fix Issues] → Resubmitted → Accepted.",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "NAV-001",
+    "category": "Dashboard & Navigation",
+    "intent": "My Petitions",
+    "question": "What is the My Petitions page?",
+    "answer": "My Petitions lists all petitions associated with the user's organization with columns for Petition Number, Property Address, Status, Filing Date, and Last Updated. The table is sortable and paginated.",
+    "source": "Navigation Options for Portal"
+  },
+  {
+    "id": "NAV-002",
+    "category": "Dashboard & Navigation",
+    "intent": "Search Filters",
+    "question": "What search filters are available for petitions?",
+    "answer": "Search filters include Petition Number, Address, Borrower, Status, and Date.",
+    "source": "Navigation Options for Portal"
+  },
+  {
+    "id": "NAV-003",
+    "category": "Dashboard & Navigation",
+    "intent": "Export Petitions",
+    "question": "Can I export my petition list?",
+    "answer": "Yes. Export to CSV and PDF is supported. Export includes all columns displayed in the table and is logged with timestamp and user ID.",
+    "source": "Navigation Options for Portal"
+  },
+  {
+    "id": "NAV-004",
+    "category": "Dashboard & Navigation",
+    "intent": "Delete Draft",
+    "question": "Can I delete a draft petition?",
+    "answer": "Yes. Draft petitions display a Delete action with confirmation prompt. Submitted petitions cannot be deleted.",
+    "source": "Navigation Options for Portal"
+  },
+  {
+    "id": "FILING-005",
+    "category": "Filing Entity",
+    "intent": "Loan Servicer",
+    "question": "What is required if I am a Loan Servicer?",
+    "answer": "If the user is a Loan Servicer, the system requires selecting the Loan Holder if more than one exists.",
+    "source": "MA EOED DOB System Revised Requirements"
+  },
+  {
+    "id": "FILING-006",
+    "category": "Filing Entity",
+    "intent": "Attorney BBO",
+    "question": "Is BBO number required for attorneys?",
+    "answer": "Yes. If filing as an attorney, you must provide your BBO (Board of Bar Overseers) number.",
+    "source": "FILIR System Guide"
+  },
+  {
+    "id": "ASSIGN-007",
+    "category": "Previous Loan Assignees",
+    "intent": "Chain of Title",
+    "question": "Why are loan assignees important?",
+    "answer": "Chain of title must be documented for legal foreclosure proceedings. Court requires proof that current holder has legal right to foreclose. Missing assignee information can delay or invalidate foreclosure action.",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "ASSIGN-008",
+    "category": "Previous Loan Assignees",
+    "intent": "Assignment Research",
+    "question": "Where can I find loan assignment history?",
+    "answer": "Check MERS (Mortgage Electronic Registration System) records, county registry of deeds, loan servicer transfer notices, or contact your servicing department.",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "ASSIGN-009",
+    "category": "Previous Loan Assignees",
+    "intent": "Actions Available",
+    "question": "What actions are available for loan assignees?",
+    "answer": "Actions include: Add Loan Assignee (saves record to list), Edit (opens record for update), and Delete (removes selected record).",
+    "source": "MA EOED DOB System Revised Requirements"
+  },
+  {
+    "id": "ATT-008",
+    "category": "Attestation & E-Signature",
+    "intent": "Legal Weight",
+    "question": "Does electronic signature have legal weight?",
+    "answer": "Yes. Electronic signature has the same legal weight as handwritten signature. Attestation confirms accuracy under penalty of perjury.",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "ATT-009",
+    "category": "Attestation & E-Signature",
+    "intent": "Signature Preview",
+    "question": "Can I preview my signature before submission?",
+    "answer": "Yes. If signature is uploaded, a preview is displayed in Step 9 (max 400px width, 120px height) with the attester details.",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "ATT-010",
+    "category": "Attestation & E-Signature",
+    "intent": "Attestation Summary",
+    "question": "What happens after clicking Done in attestation?",
+    "answer": "After clicking Done, an Attestation + Summary page appears with all attester fields and electronic signature checkbox. Final action is Commit Petition.",
+    "source": "MA EOED DOB System Revised Requirements"
+  },
+  {
+    "id": "ATT-011",
+    "category": "Attestation & E-Signature",
+    "intent": "Commit Petition",
+    "question": "What does committing a petition do?",
+    "answer": "Once committed, the petition information is locked and cannot be changed. The petition is officially submitted for review.",
+    "source": "MA EOED DOB System Revised Requirements"
+  },
+  {
+    "id": "FORM35B-006",
+    "category": "Form 35B Compliance",
+    "intent": "Loan Connection",
+    "question": "How does Step 3 affect Form 35B compliance?",
+    "answer": "Loan characteristics selected in Step 3 (variable rate, interest-only, negative amortization) automatically affect Step 7 by setting certainMortgageLoan to true.",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "FORM35B-007",
+    "category": "Form 35B Compliance",
+    "intent": "Form Purpose",
+    "question": "What is the purpose of Form 35B?",
+    "answer": "Form 35B contains disclosures about loan terms and risks that must be provided to borrowers before closing on certain mortgage loans.",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "MERS-001",
+    "category": "Loan Information & MERS",
+    "intent": "MIN Registration",
+    "question": "When must I register my MIN?",
+    "answer": "The MIN must be entered during account registration or when accessing the Maintain Account Information page for the first time for MERS data import to work.",
+    "source": "Petition System PDF"
+  },
+  {
+    "id": "MERS-002",
+    "category": "Loan Information & MERS",
+    "intent": "MIN Definition",
+    "question": "What is a MIN number?",
+    "answer": "MIN (Mortgage Identification Number) is a unique 18-digit number assigned by MERS. Not all loans have a MIN - only those registered with MERS.",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "MERS-003",
+    "category": "Loan Information & MERS",
+    "intent": "MERS Prefill Process",
+    "question": "How do I prefill loan data from MERS?",
+    "answer": "Enter the MIN number in the designated field and click 'Get Loan Information' button. The system automatically populates loan fields with MERS data.",
+    "source": "Petition System PDF"
+  },
+  {
+    "id": "ARCH-001",
+    "category": "System Architecture",
+    "intent": "Frontend Technology",
+    "question": "What technology is used for the public filing portal?",
+    "answer": "The public filing portal uses React with TypeScript, Router, Axios/Fetch, React Hook Form, and supports chunked file uploads with WCAG 2.1 AA accessibility.",
+    "source": "Proposed System Requirements"
+  },
+  {
+    "id": "ARCH-002",
+    "category": "System Architecture",
+    "intent": "Agency Frontend",
+    "question": "What technology is used for the agency workbench?",
+    "answer": "The agency workbench uses XAF Blazor (DevExpress) with list/detail views, lookups, security roles, and workflow actions.",
+    "source": "Proposed System Requirements"
+  },
+  {
+    "id": "ARCH-003",
+    "category": "System Architecture",
+    "intent": "API Layer",
+    "question": "What API standards does FILIR use?",
+    "answer": "FILIR uses REST/JSON with OpenAPI specification, JWT or session bearer authentication, and server-side validations.",
+    "source": "Proposed System Requirements"
+  },
+  {
+    "id": "ARCH-004",
+    "category": "System Architecture",
+    "intent": "Database",
+    "question": "What database does FILIR use?",
+    "answer": "FILIR uses PostgreSQL with strong foreign key constraints and audit tables for data integrity and tracking.",
+    "source": "Proposed System Requirements"
+  },
+  {
+    "id": "INTEG-001",
+    "category": "System Integrations",
+    "intent": "Google Places",
+    "question": "What is Google Places API used for?",
+    "answer": "Google Places API is used for address validation and autocomplete with manual override capability for all address fields (property, borrower, filing entity, assignee, notice).",
+    "source": "Proposed System Requirements"
+  },
+  {
+    "id": "INTEG-002",
+    "category": "System Integrations",
+    "intent": "MERS Integration",
+    "question": "What is MERS lookup integration?",
+    "answer": "MERS lookup allows MIN-based loan prefills to automatically populate loan information fields from the MERS database.",
+    "source": "Proposed System Requirements"
+  },
+  {
+    "id": "INTEG-003",
+    "category": "System Integrations",
+    "intent": "Snowflake",
+    "question": "What is Snowflake used for in FILIR?",
+    "answer": "Snowflake is used for analytics and data warehouse. ETL processes load data to Snowflake for dashboards and reconciliation.",
+    "source": "Proposed System Requirements"
+  },
+  {
+    "id": "SCOPE-001",
+    "category": "System Scope",
+    "intent": "In-Scope Features",
+    "question": "What features are in scope for FILIR?",
+    "answer": "In-scope: Public e-filing (Petitions, Form 35B), agency intake & decisioning, document tracking, workflow & tasking, notifications, dashboards, reporting, enterprise integrations (SSO, Snowflake, Mass.gov, Google Places, MERS), admin functions.",
+    "source": "Foreclosure-and-Form-35B-Filing-System-Workflow-Review 2 PDF"
+  },
+  {
+    "id": "SCOPE-002",
+    "category": "System Scope",
+    "intent": "Out-of-Scope",
+    "question": "What is out of scope for FILIR?",
+    "answer": "Out of scope: Enterprise integrations not specified in SOW, online payments (unless later approved), new system features outside SOW.",
+    "source": "Foreclosure-and-Form-35B-Filing-System-Workflow-Review 2 PDF"
+  },
+  {
+    "id": "PROC-001",
+    "category": "System Process",
+    "intent": "Primary Flows",
+    "question": "What are the three primary workflows in FILIR?",
+    "answer": "The three primary flows are: Petition Filing (Public Portal), Agency Review and Decisioning (Agency Workbench), and Form 35B Semi-Annual Reporting (Public Portal + Agency Workbench).",
+    "source": "Proposed System Requirements"
+  },
+  {
+    "id": "PROC-002",
+    "category": "System Process",
+    "intent": "Auto-save",
+    "question": "Does FILIR automatically save my work?",
+    "answer": "Yes. All forms support autosave on field blur, updating the updated_at timestamp automatically.",
+    "source": "Proposed System Requirements"
+  },
+  {
+    "id": "DATA-001",
+    "category": "Data Management",
+    "intent": "Naming Convention",
+    "question": "What naming convention is used for database fields?",
+    "answer": "Database tables and fields use camelCase naming convention, not the display names shown in the user interface.",
+    "source": "Proposed System Requirements"
+  },
+  {
+    "id": "DATA-002",
+    "category": "Data Management",
+    "intent": "UUID Usage",
+    "question": "How are records identified in FILIR?",
+    "answer": "Records use UUID for unique identification: petition_id, organization_id, created_by_user_id are all UUID format.",
+    "source": "Proposed System Requirements"
+  },
+  {
+    "id": "DATA-003",
+    "category": "Data Management",
+    "intent": "Audit Snapshots",
+    "question": "What audit information is captured?",
+    "answer": "Audit entries contain actor, action, before/after snapshots, and timestamp for all user-initiated changes.",
+    "source": "Proposed System Requirements"
+  },
+  {
+    "id": "POST-010",
+    "category": "Post-Submission Actions",
+    "intent": "Change Loan Holder",
+    "question": "When can I change the loan holder?",
+    "answer": "A 'Change Loan Holder' button appears for Attorney/Loan Servicer roles when property is sold to Mortgagee/Investor in the Foreclosure Sale section.",
+    "source": "MA EOED DOB System Revised Requirements"
+  },
+  {
+    "id": "POST-011",
+    "category": "Post-Submission Actions",
+    "intent": "Vesting Entity",
+    "question": "What is Vesting Entity Name?",
+    "answer": "Vesting Entity Name is the legal name for property vesting when the property is sold to Mortgagee/Investor.",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "POST-012",
+    "category": "Post-Submission Actions",
+    "intent": "Emergency Phone",
+    "question": "Why is REO Emergency Phone required?",
+    "answer": "Massachusetts requires a 24/7 emergency contact for foreclosed properties owned by the lender (REO properties).",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "ORG-005",
+    "category": "Organization Management",
+    "intent": "Org Registration",
+    "question": "Who can register an organization?",
+    "answer": "Only one individual from each organization is allowed to set up the company's registration in FILIR.",
+    "source": "Petition System PDF"
+  },
+  {
+    "id": "ORG-006",
+    "category": "Organization Management",
+    "intent": "Org Admin Role",
+    "question": "What can an Organization Admin do?",
+    "answer": "Organization Admins can approve or deny join requests from users wanting to associate with their organization.",
+    "source": "MA EOED DOB System Revised Requirements"
+  },
+  {
+    "id": "VAL-001",
+    "category": "Validation Rules",
+    "intent": "Progress Rules",
+    "question": "Can I skip steps in the petition process?",
+    "answer": "No. All required fields on each tab must be completed before moving to the next step. Users may click Next, Previous, or Cancel Update.",
+    "source": "MA EOED DOB System Revised Requirements"
+  },
+  {
+    "id": "VAL-002",
+    "category": "Validation Rules",
+    "intent": "Borrower Minimum",
+    "question": "What is the minimum number of borrowers required?",
+    "answer": "At least one borrower must be added before moving to the next tab in the petition process.",
+    "source": "MA EOED DOB System Revised Requirements"
+  },
+  {
+    "id": "VAL-003",
+    "category": "Validation Rules",
+    "intent": "Address Verification",
+    "question": "Must all addresses be verified?",
+    "answer": "Yes. Property addresses, borrower addresses, filing entity addresses, and notice addresses must all be verified before proceeding.",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "SEC-005",
+    "category": "MFA & Security",
+    "intent": "MFA Timestamp",
+    "question": "Is MFA setup recorded?",
+    "answer": "Yes. The system records MFA type and setup timestamp when multi-factor authentication is configured.",
+    "source": "MA EOED DOB System Revised Requirements"
+  },
+  {
+    "id": "REG-007",
+    "category": "Registration & Login",
+    "intent": "Password Complexity",
+    "question": "Are there password requirements?",
+    "answer": "Yes. Passwords must meet configured complexity rules defined in the system settings.",
+    "source": "MA EOED DOB System Revised Requirements"
+  },
+  {
+    "id": "REG-008",
+    "category": "Registration & Login",
+    "intent": "Pending Status",
+    "question": "What does pending user status mean?",
+    "answer": "Pending status means the user has registered but has not yet verified their email address. Login is not allowed until verification.",
+    "source": "MA EOED DOB System Revised Requirements"
+  },
+  {
+    "id": "REG-009",
+    "category": "Registration & Login",
+    "intent": "Active Status",
+    "question": "When does user status change to Active?",
+    "answer": "User status changes from Pending to Active when the email verification link is successfully clicked and the verified timestamp is stored.",
+    "source": "MA EOED DOB System Revised Requirements"
+  },
+  {
+    "id": "DASH-006",
+    "category": "Dashboard & Navigation",
+    "intent": "Auto Refresh",
+    "question": "Does the dashboard update automatically?",
+    "answer": "Yes. The dashboard refreshes automatically upon submission or return events to show current petition statuses.",
+    "source": "Navigation Options for Portal"
+  },
+  {
+    "id": "DASH-007",
+    "category": "Dashboard & Navigation",
+    "intent": "Petition Details",
+    "question": "How do I access petition details?",
+    "answer": "Click on any petition row in the dashboard or My Petitions table to navigate to the Petition Details view.",
+    "source": "Navigation Options for Portal"
+  },
+  {
+    "id": "NAV-005",
+    "category": "Dashboard & Navigation",
+    "intent": "Table Sorting",
+    "question": "Can I sort the petition list?",
+    "answer": "Yes. The petition table is sortable by all columns including Petition Number, Property Address, Status, Filing Date, and Last Updated.",
+    "source": "Navigation Options for Portal"
+  },
+  {
+    "id": "NAV-006",
+    "category": "Dashboard & Navigation",
+    "intent": "Pagination",
+    "question": "How are many petitions displayed?",
+    "answer": "The petition list is paginated to handle large numbers of petitions efficiently.",
+    "source": "Navigation Options for Portal"
+  },
+  {
+    "id": "PROP-009",
+    "category": "Property Information",
+    "intent": "Keyboard Navigation",
+    "question": "Can I navigate address predictions with keyboard?",
+    "answer": "Yes. Use Arrow Up/Down to navigate predictions, Enter to select, and Escape to close the dropdown.",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "PROP-010",
+    "category": "Property Information",
+    "intent": "Prediction Loading",
+    "question": "How do I know if address predictions are loading?",
+    "answer": "The system shows a loading state while fetching predictions and validation from Google Places API.",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "BORR-008",
+    "category": "Borrowers",
+    "intent": "Address Autocomplete",
+    "question": "Do borrower addresses have autocomplete?",
+    "answer": "Yes. Each borrower has Google Places integration with a separate prediction dropdown and keyboard navigation support.",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "BORR-009",
+    "category": "Borrowers",
+    "intent": "Identical Names",
+    "question": "Can multiple borrowers have the same name?",
+    "answer": "Yes. The system can handle multiple borrowers with identical names (e.g., Sr./Jr., common names). Each is tracked separately by array index.",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "LOAN-011",
+    "category": "Loan Information & MERS",
+    "intent": "Dropdown Loading",
+    "question": "What if loan type dropdown doesn't load?",
+    "answer": "Dropdown data is populated from commonData API. If not loading, check internet connection or wait for system to fetch data. A loading state with spinner is displayed.",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "ASSIGN-010",
+    "category": "Previous Loan Assignees",
+    "intent": "Validation Errors",
+    "question": "How are assignee address validation errors displayed?",
+    "answer": "Each assignee has separate validation via loanAssigneeAddressValidationErrors with error messages displayed per field per assignee.",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "ASSIGN-011",
+    "category": "Previous Loan Assignees",
+    "intent": "Prediction State",
+    "question": "Are predictions tracked per assignee?",
+    "answer": "Yes. The system tracks isLoadingLoanAssigneePredictions, showLoanAssigneePredictions, and loanAssigneePredictions separately for each assignee by index.",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "RTC-012",
+    "category": "Right to Cure (§35A)",
+    "intent": "Multiple Borrowers Notice",
+    "question": "How does Step 6 handle multiple borrowers?",
+    "answer": "The system tracks notice information per borrower and supports individual notice addresses for each borrower if needed.",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "RTC-013",
+    "category": "Right to Cure (§35A)",
+    "intent": "Days Delinquent",
+    "question": "What is Days Delinquent at Notice?",
+    "answer": "Days Delinquent at Notice is an integer representing the number of days the payment was overdue when the Right to Cure notice was sent.",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "SUB-008",
+    "category": "Submission & Validation",
+    "intent": "Summary Sections",
+    "question": "What sections are shown in Step 10 review?",
+    "answer": "Step 10 shows: Property Information, Loan Information, Borrower Details, Filing Entity, Right to Cure Notice, Form 35B Compliance, Loan Assignees, and Attestation.",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "SUB-009",
+    "category": "Submission & Validation",
+    "intent": "Jump to Step",
+    "question": "Can I jump directly to a specific step from review?",
+    "answer": "Yes. Each section in Step 10 has an Edit button that calls handleEditSection(stepNumber) to jump back to that specific step.",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "POST-013",
+    "category": "Post-Submission Actions",
+    "intent": "Judgment Update",
+    "question": "Can I update judgment information after adding it?",
+    "answer": "Yes. If judgment already exists, the Edit Judgment modal pre-populates fields and preserves the existing judgment ID for updates.",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "POST-014",
+    "category": "Post-Submission Actions",
+    "intent": "Docket Numbers",
+    "question": "Can I enter multiple docket numbers?",
+    "answer": "Yes. The Docket Numbers field accepts alphanumeric and special characters. Multiple docket numbers can be separated by commas.",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "POST-015",
+    "category": "Post-Submission Actions",
+    "intent": "Sale Amount Parsing",
+    "question": "How is foreclosure sale amount stored?",
+    "answer": "Sale amount is stored as a decimal number in the database using parseSaleAmount() which converts currency input to float.",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "ERR-004",
+    "category": "Errors & Edge Cases",
+    "intent": "Loading States",
+    "question": "How are loading states indicated?",
+    "answer": "The system shows loading states with spinner icons during data fetches (e.g., organization data, commonData API, address predictions).",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "ERR-005",
+    "category": "Errors & Edge Cases",
+    "intent": "Save Failure",
+    "question": "What causes save failures?",
+    "answer": "Common causes are: required fields not completed, invalid data format (dates, currency), session timeout, or network interruption.",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "AUD-004",
+    "category": "Audit & Compliance",
+    "intent": "Action Logging",
+    "question": "What actions are logged in the audit trail?",
+    "answer": "All user actions including signup, verification, resume, delete, view, submit, and export are logged with timestamp and user ID.",
+    "source": "Navigation Options for Portal"
+  },
+  {
+    "id": "AUD-005",
+    "category": "Audit & Compliance",
+    "intent": "Legal Purpose",
+    "question": "Why is FILIR required by law?",
+    "answer": "Pursuant to Chapter 206 of the Acts of 2007, as of May 1, 2008, all foreclosure petitions must be filed electronically through FILIR to track foreclosure trends and provide public reports.",
+    "source": "FILIR System Guide"
+  },
+  {
+    "id": "AUD-006",
+    "category": "Audit & Compliance",
+    "intent": "DOB Purpose",
+    "question": "How does Division of Banks use FILIR data?",
+    "answer": "Division of Banks uses FILIR data to track foreclosure trends, analyze pre-foreclosure notices, monitor geographic patterns and interest rates, and provide public reports on foreclosure activity.",
+    "source": "FILIR System Guide"
+  },
+  {
+    "id": "STATUS-008",
+    "category": "Petition Lifecycle",
+    "intent": "Permission by Status",
+    "question": "Can I edit core petition details after submission?",
+    "answer": "No. Core petition details can only be edited in Draft status. After submission, petitions are read-only unless returned by the court.",
+    "source": "FILIR System Comprehensive Guide"
+  },
+  {
+    "id": "STATUS-009",
+    "category": "Petition Lifecycle",
+    "intent": "Notes Permission",
+    "question": "Can I add notes at any status?",
+    "answer": "Yes. Notes can be added at all petition statuses for documentation and collaboration purposes.",
+    "source": "FILIR System Comprehensive Guide"
+  }
+]

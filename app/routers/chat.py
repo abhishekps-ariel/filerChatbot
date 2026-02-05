@@ -57,7 +57,7 @@ async def chat(
         return ChatResponse(
             answer=answer,
             sources=sources,
-            openai_model=settings.openai_model
+            gemini_model=settings.gemini_model
         )
     
     except HTTPException:

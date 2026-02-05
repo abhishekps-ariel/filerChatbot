@@ -27,8 +27,9 @@ async def ingest_document(
     4. Stores chunks and embeddings in the database
     """
     # Validate file type
-    if not (file.filename.lower().endswith('.pdf') or file.filename.lower().endswith('.docx')):
-        raise HTTPException(status_code=400, detail="Only PDF and DOCX files are supported")
+    supported_extensions = ['.pdf', '.docx', '.md', '.json']
+    if not any(file.filename.lower().endswith(ext) for ext in supported_extensions):
+        raise HTTPException(status_code=400, detail="Only PDF, DOCX, MD, and JSON files are supported")
     
     try:
         # Read file content

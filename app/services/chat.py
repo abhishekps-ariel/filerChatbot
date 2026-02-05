@@ -1,25 +1,17 @@
-from openai import OpenAI, AzureOpenAI
+import google.generativeai as genai
 from typing import List, Tuple
 from app.config import get_settings
 from app.models import DocumentChunk
 
 settings = get_settings()
+genai.configure(api_key=settings.gemini_api_key)
 
 
 class ChatService:
-    """Service for generating answers using GPT-4o-mini or Azure OpenAI."""
+    """Service for generating answers using Google Gemini."""
     
     def __init__(self):
-        if settings.use_azure:
-            self.client = AzureOpenAI(
-                api_key=settings.openai_api_key,
-                azure_endpoint=settings.azure_endpoint,
-                api_version=settings.azure_api_version
-            )
-            self.model = settings.azure_chat_deployment
-        else:
-            self.client = OpenAI(api_key=settings.openai_api_key)
-            self.model = settings.openai_model
+        self.model = genai.GenerativeModel(settings.gemini_model)
     
     def generate_answer(
         self,
@@ -27,7 +19,7 @@ class ChatService:
         context_chunks: List[Tuple[DocumentChunk, float]]
     ) -> str:
         """
-        Generate answer using retrieved context and GPT-4o-mini.
+        Generate answer using retrieved context and Gemini.
         
         Args:
             question: User's question
@@ -39,33 +31,29 @@ class ChatService:
         # Build context from chunks
         context = self._build_context(context_chunks)
         
-        # Create prompt
-        system_prompt = """You are a helpful assistant for the FILIR petition system. 
-Answer questions based on the provided context from petition documents.
-If the context doesn't contain enough information to answer the question, say so clearly.
-Be concise and accurate."""
-        
-        user_prompt = f"""Context from petition documents:
+        # Create prompt for Gemini
+        prompt = f"""You are FILIR Bot, a helpful AI assistant for the Massachusetts foreclosure petition filing system.
+
+Your role:
+- Help users understand the petition process, requirements, and system features
+- Answer questions clearly and concisely in a friendly, professional tone
+- Keep answers brief (2-4 sentences max) - users prefer short, direct answers
+- Use bullet points for steps or lists to save space
+- Never mention "context", "documents", "provided information", or reveal that you're using retrieved data
+- If you don't have enough information to answer, politely say "I don't have information about that specific topic. Could you ask about petition filing, statuses, or system features?"
+- For greetings like "hi" or "hello", respond warmly and offer to help with petition questions
+
+Use this information to answer:
 {context}
 
-Question: {question}
+User question: {question}
 
-Answer based on the context above:"""
+Your response (be natural, helpful, and BRIEF):"""
         
-        # Call GPT-4o-mini
+        # Call Gemini
         try:
-            response = self.client.chat.completions.create(
-                model=self.model,
-                messages=[
-                    {"role": "system", "content": system_prompt},
-                    {"role": "user", "content": user_prompt}
-                ],
-                temperature=0.7,
-                max_tokens=500
-            )
-            
-            answer = response.choices[0].message.content
-            return answer.strip()
+            response = self.model.generate_content(prompt)
+            return response.text.strip()
         except Exception as e:
             raise ValueError(f"Failed to generate answer: {str(e)}")
     

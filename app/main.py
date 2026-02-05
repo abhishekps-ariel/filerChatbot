@@ -12,7 +12,7 @@ settings = get_settings()
 # Create FastAPI app
 app = FastAPI(
     title="FILIR ChatBot API",
-    description="RAG-based Q&A chatbot for petition documents using OpenAI GPT-4o-mini and pgvector",
+    description="RAG-based Q&A chatbot for petition",
     version="1.0.0"
 )
 
@@ -60,14 +60,14 @@ async def health_check():
     except Exception:
         pass
     
-    # Check OpenAI configuration
-    openai_configured = bool(settings.openai_api_key and settings.openai_api_key != "your_openai_api_key_here")
+    # Check Gemini configuration
+    gemini_configured = bool(settings.gemini_api_key and settings.gemini_api_key != "your-gemini-api-key-here")
     
     return HealthResponse(
-        status="healthy" if (db_connected and openai_configured) else "degraded",
+        status="healthy" if (db_connected and gemini_configured) else "degraded",
         timestamp=datetime.now(),
         database_connected=db_connected,
-        openai_configured=openai_configured
+        gemini_configured=gemini_configured
     )
 
 

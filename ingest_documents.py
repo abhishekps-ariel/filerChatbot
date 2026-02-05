@@ -18,8 +18,18 @@ def ingest_document(file_path: Path):
     print(f"📄 Processing: {file_path.name}...")
     
     try:
+        # Determine content type based on file extension
+        ext = file_path.suffix.lower()
+        content_type_map = {
+            '.pdf': 'application/pdf',
+            '.docx': 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+            '.md': 'text/markdown',
+            '.json': 'application/json'
+        }
+        content_type = content_type_map.get(ext, 'application/octet-stream')
+        
         with open(file_path, 'rb') as f:
-            files = {'file': (file_path.name, f, 'application/pdf')}
+            files = {'file': (file_path.name, f, content_type)}
             response = requests.post(f"{API_BASE_URL}/ingest/", files=files)
         
         if response.status_code == 200:
@@ -57,23 +67,26 @@ def main():
         print("   python -m uvicorn app.main:app --reload --port 8001")
         sys.exit(1)
     
-    # Find all PDF and DOCX files
+    # Find all supported document files
     docs_folder = Path(DOCUMENTS_FOLDER)
     if not docs_folder.exists():
         print(f"❌ Folder '{DOCUMENTS_FOLDER}' not found!")
-        print(f"   Create it and add PDF/DOCX files there.")
+        print(f"   Create it and add document files there.")
         sys.exit(1)
     
     pdf_files = list(docs_folder.glob("*.pdf"))
     docx_files = list(docs_folder.glob("*.docx"))
-    all_files = pdf_files + docx_files
+    md_files = list(docs_folder.glob("*.md"))
+    json_files = list(docs_folder.glob("*.json"))
+    all_files = pdf_files + docx_files + md_files + json_files
     
     if not all_files:
-        print(f"⚠️  No PDF or DOCX files found in '{DOCUMENTS_FOLDER}' folder")
-        print(f"   Add your petition documents there and run this script again.")
+        print(f"⚠️  No document files found in '{DOCUMENTS_FOLDER}' folder")
+        print(f"   Add your documents (PDF, DOCX, MD, JSON) there and run this script again.")
         sys.exit(0)
     
-    print(f"📚 Found {len(all_files)} document(s): {len(pdf_files)} PDF, {len(docx_files)} DOCX\n")
+    print(f"📚 Found {len(all_files)} document(s):")
+    print(f"   PDF: {len(pdf_files)}, DOCX: {len(docx_files)}, MD: {len(md_files)}, JSON: {len(json_files)}\n")
     
     # Ingest each file
     success_count = 0
