@@ -60,14 +60,14 @@ async def health_check():
     except Exception:
         pass
     
-    # Check Gemini configuration
-    gemini_configured = bool(settings.gemini_api_key and settings.gemini_api_key != "your-gemini-api-key-here")
+    # Check OpenAI configuration
+    openai_configured = bool(settings.openai_api_key and settings.openai_api_key != "your-openai-api-key-here")
     
     return HealthResponse(
-        status="healthy" if (db_connected and gemini_configured) else "degraded",
+        status="healthy" if (db_connected and openai_configured) else "degraded",
         timestamp=datetime.now(),
         database_connected=db_connected,
-        gemini_configured=gemini_configured
+        openai_configured=openai_configured
     )
 
 

@@ -1,17 +1,17 @@
-import google.generativeai as genai
+from openai import OpenAI
 from typing import List, Tuple
 from app.config import get_settings
 from app.models import DocumentChunk
 
 settings = get_settings()
-genai.configure(api_key=settings.gemini_api_key)
+client = OpenAI(api_key=settings.openai_api_key)
 
 
 class ChatService:
-    """Service for generating answers using Google Gemini."""
+    """Service for generating answers using OpenAI."""
     
     def __init__(self):
-        self.model = genai.GenerativeModel(settings.gemini_model)
+        self.model = settings.openai_model
     
     def generate_answer(
         self,
@@ -19,7 +19,7 @@ class ChatService:
         context_chunks: List[Tuple[DocumentChunk, float]]
     ) -> str:
         """
-        Generate answer using retrieved context and Gemini.
+        Generate answer using retrieved context and OpenAI.
         
         Args:
             question: User's question
@@ -31,8 +31,8 @@ class ChatService:
         # Build context from chunks
         context = self._build_context(context_chunks)
         
-        # Create prompt for Gemini
-        prompt = f"""You are FILIR Bot, a helpful AI assistant for the Massachusetts foreclosure petition filing system.
+        # Create system and user messages
+        system_message = """You are FILIR Bot, a helpful AI assistant for the Massachusetts foreclosure petition filing system.
 
 Your role:
 - Help users understand the petition process, requirements, and system features
@@ -41,19 +41,33 @@ Your role:
 - Use bullet points for steps or lists to save space
 - Never mention "context", "documents", "provided information", or reveal that you're using retrieved data
 - If you don't have enough information to answer, politely say "I don't have information about that specific topic. Could you ask about petition filing, statuses, or system features?"
-- For greetings like "hi" or "hello", respond warmly and offer to help with petition questions
+-You are a conversational assistant.
+-Prioritize natural dialogue, continuity, and helpfulness.
+-Respond succinctly, but not abruptly.
+-Acknowledge user intent before answering.
+-Ask clarifying questions only when necessary.
+Avoid robotic or enumerated responses unless asked.
+- For greetings like "hi" or "hello", respond warmly and offer to help with petition questions"""
 
-Use this information to answer:
+        user_message = f"""Use this information to answer:
 {context}
 
 User question: {question}
 
 Your response (be natural, helpful, and BRIEF):"""
         
-        # Call Gemini
+        # Call OpenAI
         try:
-            response = self.model.generate_content(prompt)
-            return response.text.strip()
+            response = client.chat.completions.create(
+                model=self.model,
+                messages=[
+                    {"role": "system", "content": system_message},
+                    {"role": "user", "content": user_message}
+                ],
+                temperature=0.7,
+                max_tokens=500
+            )
+            return response.choices[0].message.content.strip()
         except Exception as e:
             raise ValueError(f"Failed to generate answer: {str(e)}")
     

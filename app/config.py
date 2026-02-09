@@ -5,10 +5,10 @@ from functools import lru_cache
 class Settings(BaseSettings):
     """Application settings loaded from environment variables."""
     
-    # Google Gemini
-    gemini_api_key: str
-    gemini_model: str = "gemini-2.5-flash"
-    gemini_embedding_model: str = "models/embedding-001"
+    # OpenAI
+    openai_api_key: str
+    openai_model: str = "gpt-4o-mini"
+    openai_embedding_model: str = "text-embedding-3-small"
     
     # Database
     postgres_host: str = "localhost"

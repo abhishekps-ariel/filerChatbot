@@ -35,7 +35,7 @@ class ChatResponse(BaseModel):
     """Response schema for chat."""
     answer: str
     sources: List[SourceChunk]
-    gemini_model: str
+    model: str
 
 
 class HealthResponse(BaseModel):
@@ -43,4 +43,4 @@ class HealthResponse(BaseModel):
     status: str
     timestamp: datetime
     database_connected: bool
-    gemini_configured: bool
+    openai_configured: bool

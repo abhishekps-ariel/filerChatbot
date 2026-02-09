@@ -87,7 +87,7 @@ The FILIR system is a petition filing and management platform for foreclosure pr
 ### Step 3: Loan Details
 
 **Purpose**: Enter detailed information about the mortgage loan
-
+    
 **Required Fields** (marked with *):
 - **Is MIN Applicable?*** - Yes/No radio button
   - If Yes: **MIN Number*** field appears (Mortgage Identification Number)
