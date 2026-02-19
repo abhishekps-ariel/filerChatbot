@@ -21,8 +21,24 @@ class Settings(BaseSettings):
     api_host: str = "0.0.0.0"
     api_port: int = 8001
     
-    # CORS
+    # CORS - can be comma-separated list of URLs
     frontend_url: str = "http://localhost:5173"
+    
+    @property
+    def allowed_origins(self) -> list[str]:
+        """Parse frontend_url into list of allowed origins."""
+        origins = []
+        # Split by comma and strip whitespace
+        for url in self.frontend_url.split(","):
+            url = url.strip()
+            if url:
+                origins.append(url)
+        # Always include localhost URLs for development
+        localhost_urls = ["http://localhost:5173", "http://localhost:3000"]
+        for url in localhost_urls:
+            if url not in origins:
+                origins.append(url)
+        return origins
     
     # RAG parameters
     chunk_size: int = 1000

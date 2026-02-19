@@ -31,8 +31,9 @@ POSTGRES_PORT=5432
 POSTGRES_DB=your-database-name
 POSTGRES_USER=your-db-user
 POSTGRES_PASSWORD=your-db-password
-FRONTEND_URL=https://your-frontend-url.com
 ```
+
+**Note:** `FRONTEND_URL` is optional - if not set, CORS allows all origins (useful for development or public APIs)
 
 **Optional (with defaults):**
 ```
@@ -105,8 +106,8 @@ Test endpoints:
 - Double-check credentials in environment variables
 
 ### CORS Errors:
-- Update `FRONTEND_URL` environment variable to your actual frontend URL
-- Make sure it includes protocol (`https://`)
+- CORS is configured to allow all origins by default
+- If you need to restrict to specific URLs, you can modify `app/main.py` to use `settings.allowed_origins` instead of `["*"]`
 
 ## Notes
 
