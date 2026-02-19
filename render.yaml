@@ -1,0 +1,31 @@
+services:
+  - type: web
+    name: filir-chatbot
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.0
+      - key: OPENAI_API_KEY
+        sync: false  # Set this in Render dashboard
+      - key: POSTGRES_HOST
+        sync: false  # Set this in Render dashboard
+      - key: POSTGRES_PORT
+        value: 5432
+      - key: POSTGRES_DB
+        sync: false  # Set this in Render dashboard
+      - key: POSTGRES_USER
+        sync: false  # Set this in Render dashboard
+      - key: POSTGRES_PASSWORD
+        sync: false  # Set this in Render dashboard
+      - key: FRONTEND_URL
+        sync: false  # Set your frontend URL here
+      - key: API_HOST
+        value: 0.0.0.0
+      - key: OPENAI_MODEL
+        value: gpt-4o-mini
+      - key: OPENAI_EMBEDDING_MODEL
+        value: text-embedding-3-small
+
